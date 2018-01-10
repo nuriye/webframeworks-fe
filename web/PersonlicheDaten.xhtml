@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./myTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">                
+                
+
+    <ui:define name="top">
+        
+    </ui:define>
+
+    <ui:define name="left">
+        <ui:insert name="left"></ui:insert>
+        <h:commandLink action="StudentHome" value="Startseite"></h:commandLink><br></br>
+        <h:commandLink action="KursubersichtStudent" value="Kursubersicht"></h:commandLink><br></br>
+        <h:commandLink action="PersonlicheDaten" value="PersonlicheDaten"> </h:commandLink><br></br>
+        <h:commandLink action="Notenubersicht" value="Notenubersicht"></h:commandLink><br></br>
+    </ui:define>
+
+    <ui:define name="right">
+        
+    </ui:define>
+
+    <ui:define name="content">
+        
+        <h:form id="profilForm" style="width: 500px">
+            <h:outputLabel for="vorname" class="inputLabel">Vorname:</h:outputLabel>
+            <h:inputText id="inputVorname" value="#{loginFrontend.username}"/>
+
+            <h:outputLabel for="nachname" class="inputLabel">Nachname:</h:outputLabel>
+            <h:inputText id="inputNachname" value="#{loginFrontend.password}"/> 
+            
+            <h:outputLabel for="geburtsdatum" class="inputLabel">Geburtsdatum:</h:outputLabel>
+            <h:inputText id="inputGeb" value="#{loginFrontend.username}"/>
+
+            <h:outputLabel for="studienrichtung" class="inputLabel">Studienrichtung:</h:outputLabel>
+            <h:inputText id="inputStudRich" value="#{loginFrontend.password}"/> 
+            
+            <h:outputLabel for="adresse" class="inputLabel">Adresse:</h:outputLabel>
+            <h:inputText id="inputAdresse" value="#{loginFrontend.password}"/>
+            
+            <h:outputLabel for="email" class="inputLabel">Email:</h:outputLabel>
+            <h:inputText id="inputEmail" value="#{loginFrontend.password}"/>
+            <br></br>
+            <h:commandButton id="updateProfilButton" style="background-color: #ffcccc; color: white" class="btn btn-block" value="Update" action="#{loginFrontend.login}"/>
+        </h:form>
+        
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,171 @@
+
+#top {
+    position: relative;
+    background-color: #ffcccc;;
+    color: white;
+    padding: 5px;
+    margin: 10px 10px 10px 10px;
+}
+
+#bottom {
+    position: relative;
+    background-color: blue;
+    padding: 5px;
+    margin: 10px 10px 10px 10px;
+}
+
+#left {
+    float: left;
+    padding: 5px;
+    width: 150px;
+    margin: 10px 10px 10px 10px;
+}
+
+#right {
+    float: right;
+    padding: 5px;
+    width: 150px;
+    margin: 10px 10px 10px 10px;
+}
+
+.center_content {
+    position: relative;
+    padding: 5px;
+    margin: 10px 10px 10px 10px;
+}
+
+.left_content {
+
+    padding: 5px;
+    margin-left: 170px;
+}
+
+.right_content {
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+
+#top a:link, #top a:visited {
+  color: white;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+  color: black;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+input[type=text] {
+    width: 100%;
+}
+
+table{
+    width: 100%;
+}
+tbody tr:nth-child(odd) {
+   background-color: #ccc;
+}
+
+.content_title{
+    text-align: center;
+    color: blue;
+}
+
+#logoutButton{
+    float: right;
+}
+
+/**************** loginTemplate.html  *****************/
+
+loginText{
+    padding-top: 200px;
+    text-align: center;
+    color: #ffcccc;
+}
+
+#loginForm{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 500px;
+  height: 100px;
+  background-color: #ffcccc;
+  border-radius: 3px;
+  border: 1px black; 
+}
+
+#loginButton
+{
+  color: #ffcccc
+}
+
+/**************** studentHome.xhtml buttons - funktioniert nicht!  *****************/
+
+#kursuebersichtButton{
+font-size: 20px; 
+font-weight: bolder; 
+margin-right: 30px; 
+width: 200px;
+height: 200px; 
+color:white;
+background-color:#ffcccc;
+border-radius: 10px;
+}
+
+/**************** PersonlicheDaten.xhtml  *****************/
+
+/*funktioniert nicht*/
+#profilForm{
+    width: 500px;
+}
+
+/*funktioniert nicht*/
+#updateProfilButton
+{
+    background-color: #ffcccc; 
+    color: white
+}
+
+.inputLabel{
+    color: #ffcccc;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
+
+/**************** Notenübersicht.xhtml  *****************/
+
+.tableLabel{
+    background-color: white;
+    color: #ffcccc;
+    font-size: 20px;
+    font-weight: bolder;   
+}
+
+/**************** KursübersichtStudent.xhtml  *****************/
+
+.tableTitel{
+    margin-left:50px;
+    background-color:#ccccea;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#feedbackButton{
+    width:300px; 
+    margin-left: 50px;
+    background-color:#ffcccc; 
+}
+
+
+
+
+

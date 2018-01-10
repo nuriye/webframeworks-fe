@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./myTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">                
+                
+
+    <ui:define name="top">
+        
+    </ui:define>
+
+    <ui:define name="left">
+       <ui:insert name="left"></ui:insert>
+        
+            <h:commandLink action="StudentHome" value="Startseite"></h:commandLink><br></br>
+            <h:commandLink action="KursubersichtStudent" value="Kursubersicht"></h:commandLink><br></br>
+            <h:commandLink action="PersonlicheDaten" value="PersonlicheDaten"> </h:commandLink><br></br>
+            <h:commandLink action="Notenubersicht" value="Notenubersicht"></h:commandLink><br></br>
+        </ui:define>
+
+    <ui:define name="right">
+        
+    </ui:define>
+
+    <ui:define name="content">
+        
+        <table style="width: 600px; margin-left:50px">
+            <tr>
+                <td class="tableLabel">Kurs</td>
+                <td class="tableLabel">Semester</td>
+                <td class="tableLabel">Lektor</td>
+                <td class="tableLabel">Note</td>
+            </tr>
+        </table>
+
+        
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <f:metadata>
+        <f:viewParam name="nr" value="#{siteMenu.seitennr}">
+            <!--<f:validateLongRange minimum="1" maximum="2" />-->
+        </f:viewParam>:
+    </f:metadata>
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <!--<link rel="stylisheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+        <h:form>
+        <div id="top">
+            
+                <!--<h:commandLink action="index" value="Home"/>--> 
+                <h:commandLink action="loginTemplate" value="Login"/> 
+                <!--injection über menegedBean-->
+                <h:commandLink action="Kursubersicht" value="Kursubersicht"></h:commandLink>
+                <!--<f:setPropertyActionListener target="#{siteMenu.seitennr}" value="1" />-->
+                <h:commandLink action="PersonlicheDaten" value="PersonlicheDaten"> </h:commandLink>
+                <!--direkte übergabe in die methode-->
+                <!--<h:commandLink action="#{siteMenu.goToSite(2)}" value="Seite 2"/>-->
+                <h:commandLink action="Notenubersicht" value="Notenubersicht"></h:commandLink>
+             
+                
+                <h:commandButton id="logoutButton" value="Logout" style="float: right" action="#{loginFrontend.logout}"/>
+             
+    
+            
+            <p:growl id="messages"/>
+ 
+                    <!--<p:menubar>
+                        <p:submenu label="File" icon="ui-icon-document">
+                            <p:submenu label="New" icon="ui-icon-contact">
+                                <p:menuitem value="Project" url="#" />
+                                <p:menuitem value="Other" url="#" />
+                            </p:submenu>
+                            <p:menuitem value="Open" url="#" />
+                            <p:separator />
+                            <p:menuitem value="Quit" url="#" />
+                        </p:submenu>
+
+                        <p:submenu label="Edit" icon="ui-icon-pencil">
+                            <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
+                            <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+                        </p:submenu>
+
+                        <p:submenu label="Help" icon="ui-icon-help">
+                            <p:menuitem value="Contents" url="#" />
+                            <p:submenu label="Search" icon="ui-icon-search">
+                                <p:submenu label="Text">
+                                    <p:menuitem value="Workspace" url="#" />
+                                </p:submenu>
+                                <p:menuitem value="File" url="#" />
+                            </p:submenu>
+                        </p:submenu>-->
+
+                        <p:submenu label="Actions" icon="ui-icon-gear">
+                            <p:submenu label="Ajax" icon="ui-icon-refresh">
+                                <p:menuitem value="Save" actionListener="#{siteMenu.save}" icon="ui-icon-disk" update="messages"/>
+                                <p:menuitem value="Update" actionListener="#{siteMenu.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
+                            </p:submenu>
+                            <p:submenu label="Non-Ajax" icon="ui-icon-newwin">
+                                <p:menuitem value="Delete" actionListener="#{siteMenu.delete}" icon="ui-icon-close" update="messages" ajax="false"/>
+                            </p:submenu>
+                        </p:submenu>
+
+                       <!-- <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
+
+                        <f:facet name="options">
+                            <p:inputText style="margin-right:10px" placeholder="Search"/>                          
+                        </f:facet>
+                    </p:menubar>-->
+              
+
+
+            <ui:insert name="top"><!--Top--></ui:insert>
+        </div>
+        <div>
+            <div id="left">
+                <ui:insert name="left"></ui:insert>
+            </div>
+            <div>
+                <div id="right">
+                    <ui:insert name="right"></ui:insert>
+                </div>
+                <div id="content" class="right_content">
+                    <ui:insert name="content"></ui:insert>
+                </div>
+            </div>
+        </div> 
+       </h:form> 
+    </h:body>
+
+</html>

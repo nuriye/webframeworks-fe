@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./myTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <!--berich vom template anbindet und šber namen gemappt-->
+    <ui:define name="top">
+        <h:outputLabel for="username">Hello, #{loginFrontend.username}, have a nice day!</h:outputLabel>
+    </ui:define>
+
+    <ui:define name="left">
+        <h2>New Student:</h2>
+        
+            <!--wir holen es von managed beans mit der namen seite1MB-->
+            <h:inputText value="#{seite1MB.studentId}" />
+            <h:inputText value="#{seite1MB.studentName}" />
+            <h:inputText value="#{seite1MB.studienGang}" />
+            <h:commandButton value="Anlegen" action="#{seite1MB.saveNewStudent()}" />
+        
+        
+    </ui:define>
+
+    <ui:define name="right">
+        right
+    </ui:define>
+
+    <ui:define name="content">
+        
+        <h1 class="content_title">Liste aller Studierender</h1>
+        <!--jedes item mappe ich auf eine variable und dann kann ich auf jeden student zugreiffen
+        studentenobjekt wird 1:1 durchgeschliefen-->
+        <h:dataTable value="#{seite1MB.allStudents}" var="aStudent">
+            <h:column>
+                <f:facet name="header">ID </f:facet>
+                    #{aStudent.ID}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Name </f:facet>
+                <h:outputText value="#{aStudent.name}" rendered="#{!aStudent.editable}" />
+                <h:inputText value="#{aStudent.name}" rendered="#{aStudent.editable}" />
+                <!--wenn editierbarkeit false ist, wird normale output feld gerendert-->
+                   
+            </h:column>
+            <h:column>
+                <f:facet name="header">Studiengang </f:facet>
+                <h:outputText value="#{aStudent.studiengang}" rendered="#{!aStudent.editable}" />
+                <h:inputText value="#{aStudent.studiengang}" rendered="#{aStudent.editable}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Löschen</f:facet>
+                
+                <h:commandButton value="Delete" action="#{seite1MB.deleteStudent()}">
+                        <!--aStudnet ist a objekt das vorher erzeugt wurde, und dieses objekt geben wir als variable mit
+                        mapping von astudent an den student in managed beans-->
+                        <f:setPropertyActionListener target="#{seite1MB.student}" value="#{aStudent}" />
+                    </h:commandButton>
+                
+            </h:column>
+            <h:column>
+                <f:facet name="header">Update</f:facet>
+                
+                    <h:commandButton value="Update" action="#{seite1MB.initUpdate(true)}" rendered="#{!aStudent.editable}">
+                        <!--aStudnet ist a objekt das vorher erzeugt wurde, und dieses objekt geben wir als variable mit-->
+                        <f:setPropertyActionListener target="#{seite1MB.student}" value="#{aStudent}" />
+                    </h:commandButton>
+                    <h:commandButton value="Speichern" action="#{seite1MB.updateStudent()}" rendered="#{aStudent.editable}">
+                        <!--aStudnet ist a objekt das vorher erzeugt wurde, und dieses objekt geben wir als variable mit-->
+                        <f:setPropertyActionListener target="#{seite1MB.student}" value="#{aStudent}" />
+                    </h:commandButton>                
+               
+            </h:column>            
+        </h:dataTable>
+
+    </ui:define>
+
+</ui:composition>
