@@ -11,6 +11,7 @@ import at.ws.OutputPayloadLogin;
 import at.ws.StudyServices;
 import at.ws.StudyServices_Service;
 import java.io.Serializable;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 //import javax.inject.Named;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpSession;
  */
 //@Named //Wichtig um die Klasse zum Binding für die index.xhtml Seite zu klassifizieren (Binding wird in faces-config.xml durchgeführt)
 @ManagedBean(name = "loginFrontend")
+@SessionScoped
 public class LoginFrontend implements Serializable{
     
     //Variablen zum Binding für index.xhtml
@@ -29,6 +31,7 @@ public class LoginFrontend implements Serializable{
     private String password;
     private Integer userid;
     private String role;
+    
 
     public Integer getUserid() {
         return userid;
@@ -96,7 +99,8 @@ public class LoginFrontend implements Serializable{
         
         
         FacesContext context = FacesContext.getCurrentInstance();
-        HttpSession session = (HttpSession)context.getExternalContext().getSession(true);
+        //HttpSession session = (HttpSession)context.getExternalContext().getSession(true);
+        HttpSession session = (HttpSession)context.getExternalContext().getSession(false);
         // Variable für Sessions
         session.setAttribute("userid",userid);
         session.setAttribute("role",role);
@@ -116,6 +120,9 @@ public class LoginFrontend implements Serializable{
         return "loginTemplate";
     }
     
+    /*public String hideStudent() {
+        
+    }*/
     
     public String showCourses(){ //Login-methode, wird ausgeführt wenn der Button in index.xhtml geklickt wird.
     
@@ -139,6 +146,13 @@ public class LoginFrontend implements Serializable{
         // Variable für Sessions
         session.setAttribute("userid",userid);
         session.setAttribute("role",role);
+       /* 
+        if(role.equals("lecturer")){
+           hideStudent = "display: none";
+           hideLecturer = "display: inital";
+        } else {
+            return "Notenubersicht";
+        }*/
                 
         /*if(role.equals("lecturer")){
            return "Kursubersicht"; //Umleitung auf die Home Seite

@@ -33,7 +33,7 @@
                 <h:commandLink action="PersonlicheDaten" value="PersonlicheDaten"> </h:commandLink>
                 <!--direkte übergabe in die methode-->
                 <!--<h:commandLink action="#{siteMenu.goToSite(2)}" value="Seite 2"/>-->
-                <h:commandLink action="Notenubersicht" value="Notenubersicht"></h:commandLink>
+                <h:commandLink action="Notenubersicht" value="Notenübersicht"></h:commandLink>
              
                 
                 <h:commandButton id="logoutButton" value="Logout" style="float: right" action="#{loginFrontend.logout}"/>
@@ -91,7 +91,22 @@
         </div>
         <div>
             <div id="left">
-                <ui:insert name="left"></ui:insert>
+                <ui:insert name="left">
+                    <div id="navi-student" style="#{loginFrontend.hideStudent}">
+                           <h:commandLink action="StudentHome" value="Startseite"></h:commandLink><br></br>
+        <h:commandLink action="KursubersichtStudent" value="Kursubersicht"></h:commandLink><br></br>
+        <h:commandLink action="PersonlicheDaten" value="PersonlicheDaten"> </h:commandLink><br></br>
+        <h:commandLink action="Notenubersicht" value="Notenubersicht"></h:commandLink><br></br>
+                    </div>
+                    
+                     <div id="navi-lecturer" style="#{loginFrontend.hideLecturer}">
+                           <h:commandLink action="StudentHome" value="Startseite"></h:commandLink><br></br>
+        <h:commandLink action="KursubersichtStudent" value="Kursubersicht"></h:commandLink><br></br>
+        <h:commandLink action="PersonlicheDaten" value="PersonlicheDaten"> </h:commandLink><br></br>
+        <h:commandLink action="Notenubersicht" value="Notenubersicht"></h:commandLink><br></br>
+                    </div>
+                    
+                </ui:insert>
             </div>
             <div>
                 <div id="right">
